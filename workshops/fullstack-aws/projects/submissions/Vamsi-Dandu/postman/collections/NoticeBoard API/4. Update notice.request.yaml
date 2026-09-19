@@ -1,0 +1,20 @@
+$kind: http-request
+url: '{{base_url}}/notices/{{notice_id}}'
+method: PUT
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Postman test notice (edited)",
+      "content": "Edited from Postman"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('status is 200', () => pm.response.to.have.status(200));
+      pm.test('update message', () => pm.expect(pm.response.json().message).to.eql('Notice updated successfully'));
+    language: text/javascript
+order: 4000

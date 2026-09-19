@@ -1,0 +1,8 @@
+$kind: collection
+description: |-
+  A serverless REST API for managing notices, built with AWS Lambda + API Gateway + MongoDB.
+  Supports full CRUD: create, list, get, update, and delete notices.
+  Requests run in order — the created notice ID is shared via the `notice_id` collection variable.
+variables:
+  base_url: https://74jaiumpab.execute-api.us-east-2.amazonaws.com
+  notice_id: ""

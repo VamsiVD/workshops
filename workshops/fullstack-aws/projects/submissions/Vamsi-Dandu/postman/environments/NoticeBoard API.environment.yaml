@@ -1,0 +1,6 @@
+name: NoticeBoard API
+values:
+  - key: base_url
+    value: 'https://74jaiumpab.execute-api.us-east-2.amazonaws.com'
+    description: AWS API Gateway invoke URL for the NoticeBoard API
+    enabled: true
