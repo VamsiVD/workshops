@@ -1,0 +1,26 @@
+$kind: http-request
+url: '{{base_url}}/notices'
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Postman test notice",
+      "content": "Created from Postman"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('status is 201', () => pm.response.to.have.status(201));
+      const body = pm.response.json();
+      pm.test('has _id, title, content', () => {
+        pm.expect(body).to.have.property('_id');
+        pm.expect(body.title).to.eql('Postman test notice');
+        pm.expect(body.content).to.eql('Created from Postman');
+      });
+      pm.collectionVariables.set('notice_id', body._id);
+    language: text/javascript
+order: 1000

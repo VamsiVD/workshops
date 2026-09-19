@@ -1,0 +1,4 @@
+# In AWS Lambda these come from the pymongo Lambda layer (../pymongo-layer),
+# not from the function zip. Listed here for local development only.
+pymongo
+dnspython
